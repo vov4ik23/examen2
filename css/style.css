@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c3c;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Анімація снігу */
+#snowfall {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+#snowfall::before, #snowfall::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://pngimg.com/uploads/snowflakes/snowflakes_PNG7572.png');
+  background-repeat: repeat;
+  background-size: 50px;
+  opacity: 0.7;
+  animation: snowfall 15s linear infinite;
+}
+
+#snowfall::after {
+  background-image: url('https://pngimg.com/uploads/snowflakes/snowflakes_PNG7575.png');
+  opacity: 0.5;
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Таймер */
+.countdown-timer {
+  text-align: center;
+  background-color: #2d2d57;
+  padding: 20px 0;
+}
+
+.countdown-timer h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#countdown {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+#countdown span {
+  background: #ff4d4d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 0 5px;
+}
+
+/* Основний контент */
+.main-content {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#cta-button {
+  background-color: #ff6347;
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+}
+
+#cta-button:hover {
+  background-color: #ff4500;
+  box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5);
+}
+
+/* Гірлянди */
+.garland {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  top: 10px;
+  z-index: 10;
+}
+
+.bulb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: blink 1s infinite alternate;
+}
+
+.bulb:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bulb:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.bulb:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.bulb:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.bulb:nth-child(6) {
+  animation-delay: 1s;
+}
+.bulb:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.bulb:nth-child(8) {
+  animation-delay: 1.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #cta-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+  }
+  .countdown-timer h1 {
+    font-size: 1.5rem;
+  }
+}

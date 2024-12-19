@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вибір подарунків</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Анімація снігу -->
+  <div id="snowfall"></div>
+
+  <!-- Зворотний відлік до Нового року -->
+  <header class="countdown-timer">
+    <h1>До Нового року залишилось:</h1>
+    <div id="countdown">
+      <span id="days">00</span>д 
+      <span id="hours">00</span>г 
+      <span id="minutes">00</span>хв 
+      <span id="seconds">00</span>сек
+    </div>
+  </header>
+
+  <!-- Головна кнопка для пошуку подарунка -->
+  <main class="main-content">
+    <h1>Знайди ідеальний подарунок!</h1>
+    <button id="cta-button">Розпочати пошук подарунка</button>
+  </main>
+
+  <!-- Гірлянди -->
+  <div class="garland">
+    <div class="bulb" style="background-color: red;"></div>
+    <div class="bulb" style="background-color: yellow;"></div>
+    <div class="bulb" style="background-color: green;"></div>
+    <div class="bulb" style="background-color: blue;"></div>
+    <div class="bulb" style="background-color: red;"></div>
+    <div class="bulb" style="background-color: yellow;"></div>
+    <div class="bulb" style="background-color: green;"></div>
+    <div class="bulb" style="background-color: blue;"></div>
+  </div>
+
+  <script>
+    // Таймер зворотного відліку
+    const countdown = () => {
+      const now = new Date();
+      const newYear = new Date(now.getFullYear() + 1, 0, 1); // Наступний рік
+      const timeDiff = newYear - now;
+
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    };
+
+    // Оновлення кожну секунду
+    setInterval(countdown, 1000);
+  </script>
+
+</body>
+</html>
